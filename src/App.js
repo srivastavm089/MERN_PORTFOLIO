@@ -18,6 +18,7 @@ import AdminProject from "./components/admin/AdminProject";
 const App = () => {
   const {isAuthenticated} = useSelector((state)=> state.login)
   const {loading} = useSelector((state)=> state.user)
+  const data = useSelector((state)=> state.user);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -29,8 +30,8 @@ const App = () => {
     <>
       <Header />{" "}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/" element={<Home data={data} />} />
+        <Route path="/about" element={<About about={data.user }/>} />
         <Route path="/project" element={<Project />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/account" element={isAuthenticated ?   <AdminPanel/>:<Login />} />

@@ -1,162 +1,181 @@
-.admin-panel{
-    width: 100%;
-    min-height: 100vh;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.admin-panel {
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.admin-panel-container {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  background-color: #f1f1f1;
+}
+.admin-panel-container > h4 {
+  margin: 2vmax;
+  letter-spacing: 15px;
+  display: flex;
+  transform: translateX(-100vw);
+  animation: contactFormInput 1s ease-in-out forwards;
+  justify-content: center;
+}
+.admin-panel-container > h4 > p {
+  transition: all 0.5s;
+}
+.admin-panel-container > h4 > p:hover {
+  transform: translateY(-10px);
+}
+.admin-panel-container > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 4vmax;
+  padding-top: 0;
+}
+.adminPanelInput {
+  width: 50%;
+  padding: 1vmax 2vmax;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  font: 100 1rem "Roboto", sans-serif;
+  outline: none;
+  margin: 2vmax;
+  box-sizing: border-box;
+}
+.adminPanelSkills {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.adminPanelSkills > div {
+  display: flex;
+  align-items: center;
+  margin: 2vmax;
+}
+.adminPanelSkills > div > p {
+  font: 400 1.5rem "Roboto", sans-serif;
+  margin-right: 2vmax;
+  color: rgba(24, 24, 24, 0.815);
+}
+.adminPanelSkills > div > p {
+  font: 400 1.5rem "Roboto", sans-serif;
+  margin-right: 2vmax;
+  color: rgba(24, 24, 24, 0.815);
+}
+
+.fileUploadButton {
+  width: 50%;
+  border-radius: 30px;
+  border: none;
+  font: 100 1rem "Roboto", sans-serif;
+  cursor: pointer;
+  background-color: #7c73f8;
+  padding: 1vmax;
+  color: white;
 
 }
-.admin-panel-container{
-    width: 100%;
-    max-width: 1200px;
-    min-height: 100vh;
-    background-color: #f1f1f1;
-}
-.admin-panel-container > h4{
-    margin: 2vmax;
-    letter-spacing: 15px;
-    display: flex;
-    transform: translateX(-100vw);
-    animation: contactFormInput 1s ease-in-out forwards;
-    justify-content: center;
-
-}
-.admin-panel-container > h4 > p{
+.fileUploadButton::-webkit-file-upload-button{
+  background-color: #7c73f8;
+ color: white;
+ border: none;
+ border-radius: 15px;
  transition: all 0.5s;
 
+}
+.fileUploadButton::-webkit-file-upload-button:hover{
+  cursor: pointer;
+  background-color: indigo;
+  
 
 }
-.admin-panel-container > h4 > p:hover{
-   transform: translateY(-10px);
-    
-   
+.adminPanelAbout > fieldset {
+  display: flex;
+  flex-direction: column;
+  margin: 2vmax 0;
+  padding-bottom: 3vmax;
+  border: 3px solid black;
+  align-items: center;
 }
-.admin-panel-container > form{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   padding: 4vmax;
-padding-top: 0;
-
-     
-    
- }
- .adminPanelInput{
-    width: 50%;
-    padding: 1vmax 2vmax;
-    border: 1px solid #ccc;
-    border-radius: 50px;
-    font: 100 1rem "Roboto", sans-serif;
-    outline: none;
-    margin: 2vmax;
-    box-sizing: border-box;
-
- }
- .adminPanelSkills{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
- }
- .adminPanelSkills > div{
-    display: flex;
-    align-items: center;
-    margin: 2vmax;
-
- }
- .adminPanelSkills > div > p{
-    font: 400 1.5rem "Roboto", sans-serif;
-    margin-right: 2vmax;
-    color: rgba(24, 24, 24, 0.815);
-
- }
- .adminPanelSkills > div > p{
-    font: 400 1.5rem "Roboto", sans-serif;
-    margin-right: 2vmax;
-    color: rgba(24, 24, 24, 0.815);
-    
- }
- .fileUploadButton{
-outline: red;
-background: black;
-
-
-    
- }
- .fileUploadButton::-webkit-file-upload-button{
-    width: 100%;
-    border-radius: 30px;
-    border: none;
-    font: 100 1rem "Roboto" , sans-serif;
-    cursor: pointer;
-    background-color: #7c73f8;
-    padding: 1vmax;
-    color: white;
-   
- }
- .adminPanelAbout > fieldset {
-    display: flex;
-    flex-direction: column;
-    margin: 2vmax 0;
-    padding-bottom: 3vmax;
-    border: 3px solid black;
-    align-items: center;
-
- }
-.adminPanelAbout{
-    width: 100%;
- }
- .adminPanelAbout > fieldset > legend {
+.adminPanelAbout {
+  width: 100%;
+}
+.adminPanelAbout > fieldset > legend {
   margin: 2vmax;
   font: 400 2rem "Roboto";
+}
+.admin-panel-container > form > a {
+  background-color: #fafafa;
+  padding: 2vmax;
+  font: 400 2rem "Roboto ", sans-serif;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 220px;
+  margin: 2vmax;
+  transition: all 0.5s;
+}
+.admin-panel-container > form > a:hover {
+  box-shadow: 0 0 10px black;
+  transform: scale(1.1);
+}
+.admin-panel-container > form > button {
+  width: 100%;
+  padding: 1vmax;
+  margin: 2vmax;
+  background: black;
+  color: white;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.admin-panel-container > form > button:hover {
+  transform: translateY(-2px);
+  background-color: #7c73f8;
+  border: 1px solid white;
+}
+.logout-btn {
+  background: red;
+  color: white;
+  border: none;
+  padding: 1vmax;
+  border-radius: 5px;
+}
+.adminPanelTimeline {
+  display: flex;
 
- }
-.admin-panel-container > form > a{
-    background-color: #fafafa;
-    padding: 2vmax;
-    font: 400 2rem "Roboto ", sans-serif;
-    color: black;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    width: 220px;
-    margin: 2vmax;
-    transition: all 0.5s;
+  justify-content: center;
+  gap: 1vh;
 }
-.admin-panel-container > form > a:hover{
- box-shadow: 0 0 10px black ;
- transform: scale(1.1);
+.time-line-div {
+  transition: all 0.5s;
 }
-.admin-panel-container > form > button{
-   width: 100%;
-   padding: 1vmax;
-   margin: 2vmax;
-   background: black;
-   color: white;
-   cursor: pointer;
-   transition: all 0.5s;
-   }
-   .admin-panel-container > form > button:hover{
-        transform: translateY(-2px);
-        background-color: #7c73f8;
-        border: 1px solid white;
-    }
-    .logout-btn{
-        background: red;
-        color: white;
-        border: none;
-        padding: 1vmax;
-        border-radius: 5px;
-    }
-    .adminPanelTimeline{
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      flex-wrap: wrap;
-    }
+.time-line-div:hover {
+  box-shadow: 6px 6px 10px gray;
+  transform: translateY(-5px);
+}
+.admin-project-div {
+  display: flex;
+  width: 40%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+
+  transition: all 0.5s;
+}
+.admin-project-div > img{
+  width: 225px;
+  height: 225px;
+}
+.admin-project-div:hover {
+  box-shadow: 5px 5px 10px black;
+  transform: translateY(-5px);
+}
+
+
+

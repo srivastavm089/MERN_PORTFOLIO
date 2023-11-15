@@ -6,11 +6,12 @@ import { Button, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { getUser } from "../../redux/action/user";
 import { FaTrash } from "react-icons/fa";
+import toast, { Toaster } from "react-hot-toast";
 const Timeline = () => {
   const dispatch = useDispatch();
   const { message, error, loading } = useSelector((state) => state.update);
   const { user } = useSelector((state) => state.user);
-
+  
   
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -27,9 +28,18 @@ const Timeline = () => {
     dispatch(getUser())
   };
 
+useEffect(()=>{
+    if(message){
+      toast.success(message)
+      dispatch(getUser())
+    }
+},[message])
+// useEffect(()=>{
 
+// },[])
   return (
     <div className="admin-panel">
+         <Toaster />
       <div className="admin-panel-container">
         <Typography variant="h4">
           <p>A</p>
@@ -78,7 +88,7 @@ const Timeline = () => {
         <div className="adminPanelTimeline">
           {
             user.timeline && user.timeline.map((item, index) =>(
-              <div>
+              <div className="time-line-div">
               <Typography variant="h6">{item.title}</Typography>
               <Typography variant="body1" style={{ letterSpacing: "2px" }}>
                 {item.description}
@@ -87,7 +97,7 @@ const Timeline = () => {
                 {item.date}
               </Typography>
               <Button
-                onClick={() => deleteHandler(index)}
+                onClick={() => deleteHandler(item._id)}
                 style={{
                   margin: "auto",
                   display: "block",

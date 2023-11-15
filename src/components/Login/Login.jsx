@@ -4,45 +4,46 @@ import { Button } from "@mui/material";
 import toast, { Toaster } from "react-hot-toast";
 import { useDispatch } from "react-redux";
 import { login } from "../../redux/action/user";
-import { useMemo } from "react";
+import { useForm } from "react-hook-form";
 import { useSelector } from "react-redux";
-
+import { BiError } from "react-icons/bi";
 import React, { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+
 const Login = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const dispatch = useDispatch();
   const { loading, message, error } = useSelector((state) => state.login);
-  console.log(message);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(login(email, password));
-  };
-  if (error) {
-    console.log(error);
-  }
+
   useEffect(() => {
-  
     if (error) {
       toast.error(error);
-      dispatch({ type: "CLEAR_MESSAGE" });
+      dispatch({type:'CLEAR_ERROTS'})
     }
   }, [error]);
-  useEffect(()=>{
+  useEffect(() => {
     if (message) {
-      toast.success(message)
-      dispatch({ type: "CLEAR_ERROTS" });
+      toast.success(message);
+      dispatch({type:'CLEAR_MESSAGE'})
     }
-  },[message])
-
+  }, [message]);
 
   return (
     <div className="login">
       <div className="loginContainer">
-    <Toaster/>
+        <Toaster />
 
-        <form className="loginForm" onSubmit={submitHandler}>
+        <form
+          className="loginForm"
+          onSubmit={handleSubmit((data) => {
+            dispatch(login(data.email, data.password));
+          
+          })}
+        >
           <Typography variant="h4">
             <p>A</p>
             <p>D</p>
@@ -57,17 +58,55 @@ const Login = () => {
           </Typography>
           <div>
             <input
-              type="email"
+              type="text"
               placeholder="Admin Email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              formNoValidate
+              {...register("email", {
+                required: "Please Enter Your Email Id ",
+                pattern: {
+                  value: /^([\w\.\-_]+)?\w+@[\w-_]+(\.\w+){1,}$/gim,
+                  message: `Enter a valid email`,
+                },
+              })}
             />
+            {errors.email && (
+              <p
+                style={{
+                  textAlign: "center",
+                  color: "red",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "1vh",
+                }}
+              >
+                {" "}
+                <BiError /> {errors.email.message}
+              </p>
+            )}
             <input
               type="password"
               placeholder="Admin Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              {...register("password", {
+                required: "Please Enter Your Password ",
+              })}
             />
+            {errors.password && (
+              <p
+                style={{
+                  textAlign: "center",
+                  color: "red",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "1vh",
+                }}
+              >
+                <BiError />
+                {errors.password.message}
+              </p>
+            )}
+
             <Button type="submit" variant="contained">
               Login
             </Button>

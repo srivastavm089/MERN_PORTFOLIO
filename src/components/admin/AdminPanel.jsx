@@ -62,10 +62,12 @@ const AdminPanel = () => {
 
   useEffect(() => {
     if (error) {
-      dispatch({ type: "CLEAR_MESSAGE" });
+      toast.error(error);
+      dispatch({ type: "CLEAR_ERROTS" });
     }
     if (message) {
       toast.success(message);
+      dispatch({ type: "CLEAR_MESSAGE" });
     }
   }, []);
 
@@ -230,7 +232,7 @@ const AdminPanel = () => {
           className="logout-btn"
           variant="contained"
           color="error"
-          style={{ display: "block", margin: "4vmax auto" }}
+          style={{ display: "block", margin: "4vmax auto", cursor: "pointer" }}
           onClick={logoutHandler}
         >
           LOGOUT

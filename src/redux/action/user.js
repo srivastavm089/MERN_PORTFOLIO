@@ -162,7 +162,7 @@ export const deleteTimeline = (id) => {
       dispatch({
         type: "DELETE_TIMELINE_REQUEST",
       });
-      const { data } = await axios.delete(`/api/v1/admin/timline/:${id}`);
+      const { data } = await axios.delete(`/api/v1/admin/timline/${id}`);
       dispatch({
         type: "DELETE_TIMELINE_SUCCESS",
         payload: data.message,
@@ -170,6 +170,27 @@ export const deleteTimeline = (id) => {
     } catch (error) {
       dispatch({
         type: "DELETE_TIMELINE_FAILURE",
+        payload: error.response.data.message,
+      });
+    }
+  };
+};
+export const deleteProject = (id) => {
+
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: "DELETE_PROJECT_REQUEST",
+      });
+      const { data } = await axios.delete(`/api/v1/admin/project/${id}`);
+      console.log(data.message)
+      dispatch({
+        type: "DELETE_PROJECT_SUCCESS",
+        payload: data.message,
+      });
+    } catch (error) {
+      dispatch({
+        type: "DELETE_PROJECT_FAILURE",
         payload: error.response.data.message,
       });
     }
@@ -198,12 +219,44 @@ export const addProject = (url, title, image, description, techStack) => {
       );
       console.log(data);
       dispatch({
-        type: " ADD_PROJECT_SUCCESS",
+        type: "ADD_PROJECT_SUCCESS",
         payload: data.message,
       });
     } catch (error) {
       dispatch({
-        type: " ADD_PROJECTE_FAILURE",
+        type: "ADD_PROJECTE_FAILURE",
+        payload: error.response.data.message,
+      });
+    }
+  };
+};
+export const contact = (name, email, message) => {
+  return async (dispatch) => {
+    try {
+      dispatch({
+        type: " CONTACT_REQUEST",
+      });
+      const { data } = await axios.post(
+        "/api/v1/message",
+        {
+          name,
+          email,
+          message,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(data);
+      dispatch({
+        type: "CONTACT_SUCCESS",
+        payload: data.message,
+      });
+    } catch (error) {
+      dispatch({
+        type: "CONTACT_FAILURE",
         payload: error.response.data.message,
       });
     }

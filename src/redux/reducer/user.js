@@ -87,6 +87,7 @@ export const updateReducer = createReducer(
     },
     ADD_TIMELINE_REQUEST: (state) => {
       state.loading = true;
+      
     },
     ADD_TIMELINE_SUCCESS: (state, action) => {
       state.loading = false;
@@ -123,6 +124,18 @@ export const updateReducer = createReducer(
       state.loading = false;
       state.error = action.payload;
     },
+    DELETE_PROJECT_REQUEST: (state) => {
+      state.loading = true;
+    },
+    DELETE_PROJECT_SUCCESS: (state, action) => {
+      state.loading = false;
+     state.message = action.payload;
+    },
+    DELETE_PROJECT_FAILURE: (state, action) => {
+      state.isAuthenticated = false;
+      state.loading = false;
+      state.error = action.payload;
+    },
     CLEAR_ERROTS: (state) => {
       state.error = null;
     },
@@ -131,3 +144,26 @@ export const updateReducer = createReducer(
     },
   }
 );
+export const contactReducer = createReducer({}, {
+    CONTACT_REQUEST:(state)=>{
+       state.loading = true
+    },
+    CONTACT_SUCCESS:(state, action)=>{
+      state.message = action.payload;
+      state.loading= false
+    },
+    CONTACT_FAILURE:(state,action)=>{
+      state.error = action.payload
+      state.loading= false
+    },
+    CONTACT_CLEAR_MESSAGE:(state,action)=>{
+      state.message =null
+      state.loading= false
+    },
+    CONTACT_CLEAR_ERROR:(state,action)=>{
+      state.error =null
+      state.loading= false
+    }
+
+
+})

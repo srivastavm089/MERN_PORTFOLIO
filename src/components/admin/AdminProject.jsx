@@ -1,29 +1,34 @@
 import { Button, Typography } from "@mui/material";
 import React, { useState } from "react";
 import { MdKeyboardBackspace, MdTimeline } from "react-icons/md";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { addProject } from "../../redux/action/user";
+import { addProject, deleteProject } from "../../redux/action/user";
+import { FaTrash } from "react-icons/fa";
 
 const AdminProject = () => {
-  const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   const [url, setUrl] = useState("");
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [techStack, setTechStack] = useState("");
-  const [image,setImage] = useState("")
+  const [image, setImage] = useState("");
   const submitHandler = (e) => {
-          e.preventDefault();
-       dispatch(addProject(url,title, image, description, techStack))
+    e.preventDefault();
+    dispatch(addProject(url, title, image, description, techStack));
+  };
+  const deleteHandler = (id) => {
+    console.log(id);
+    dispatch(deleteProject(id));
   };
   const handleImages = (e) => {
-   
     const Reader = new FileReader();
     Reader.readAsDataURL(e.target.files[0]);
     Reader.onload = () => {
       if (Reader.readyState === 2) {
-           console.log(Reader.result)
-           setImage(Reader.result)
+        console.log(Reader.result);
+        setImage(Reader.result);
       }
     };
   };
@@ -63,8 +68,7 @@ const AdminProject = () => {
             className="adminPanelInput"
             placeholder="description"
             value={description}
-            onChange={e=> setDescription(e.target.value)}
-
+            onChange={(e) => setDescription(e.target.value)}
           />
           <input
             type="text"
@@ -88,6 +92,44 @@ const AdminProject = () => {
             <MdKeyboardBackspace />
           </Link>
         </form>
+        <div className="adminPanelTimeline">
+          {user.projects &&
+            user.projects.map((item, index) => (
+              <div className="admin-project-div">
+                <img
+                  style={{ width: "100%", maxHeight: "30vh" }}
+                  src={item.image.url}
+                  alt="logo"
+                />
+                <Typography variant="h6">{item.title}</Typography>
+                <Typography
+                  variant="body1"
+                  style={{
+                    letterSpacing: "2px",
+                    width: "100%",
+                    overflow: "hidden",
+                    whiteSpace: "nowrap",
+                    textOverflow: "ellipsis",
+                  }}
+                >
+                  {item.description}
+                </Typography>
+                <Typography variant="body1" style={{ fontWeight: 600 }}>
+                  {item.date}
+                </Typography>
+                <Button
+                  onClick={() => deleteHandler(item._id)}
+                  style={{
+                    margin: "auto",
+                    display: "block",
+                    color: "rgba(40,40,40, 0.7)",
+                  }}
+                >
+                  <FaTrash />
+                </Button>
+              </div>
+            ))}
+        </div>
       </div>
     </div>
   );
