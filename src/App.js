@@ -19,7 +19,7 @@ const App = () => {
   const {isAuthenticated} = useSelector((state)=> state.login)
   const {loading} = useSelector((state)=> state.user)
   const data = useSelector((state)=> state.user);
-
+ console.log(data)
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUser());

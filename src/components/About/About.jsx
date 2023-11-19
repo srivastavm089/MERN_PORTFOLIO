@@ -2,9 +2,9 @@ import React, { useEffect } from "react";
 import "../About/about.css";
 import { Typography } from "@mui/material";
 import { image } from "../../images";
+import Typewriter from "typewriter-effect";
 
-const About = ({about}) => {
-
+const About = ({ about }) => {
   return (
     <>
       <div className="about">
@@ -13,11 +13,14 @@ const About = ({about}) => {
         </div>
         <div className="aboutContainer2">
           <div>
-            <img
-              src={about.about.avatar.url}
-              alt="image"
-              className="about-avatar"
-            />
+            <div className="image-container">
+              <img
+                src={about.about.avatar.url}
+                alt="image"
+                className="about-avatar"
+              />
+              <div class="border"></div>
+            </div>
 
             <Typography
               variant="h4"
@@ -26,9 +29,12 @@ const About = ({about}) => {
                 color: "black",
               }}
             >
-              <p>{about.about.name}</p>
+              <p>Hi, i'm {about.about.name}</p>
             </Typography>
-            <Typography>{about.about.title}</Typography>
+            <Typography>
+              {about.about.title} !
+             
+            </Typography>
             <Typography style={{ margin: "1vmax 0" }}>
               {about.about.subtitle}
             </Typography>
@@ -44,12 +50,18 @@ const About = ({about}) => {
                 wordWrap: "wrap",
               }}
             >
-              {about.about.description}
+          
+              <Typewriter
+                options={{
+                  strings: ["Welcome You.....", `${about.about.description}....`],
+                  autoStart: true,
+                  loop: true,
+                }}
+              />
             </Typography>
           </div>
         </div>
       </div>
-
     </>
   );
 };

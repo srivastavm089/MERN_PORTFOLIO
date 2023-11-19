@@ -6,6 +6,7 @@ export const getUser = () => {
         type: "GET_USER_REQUEST",
       });
       const { data } = await axios.get("/api/v1/getUser");
+      console.log(data)
       dispatch({
         type: "GET_USER_SUCCESS",
         payload: data.user,
