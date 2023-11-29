@@ -33,8 +33,8 @@ export const login = (email, password) => {
         {
           headers: {
             "Content-Type": "application/json",
-          },
-          withCredentials: true,
+          }
+  
         }
       );
       localStorage.setItem("token", JSON.stringify(data.token));
