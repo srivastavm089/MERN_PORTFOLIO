@@ -5,17 +5,16 @@
   filter: blur(10px);
   position: absolute;
 }
-.homeCanvasContainer{
-  background-color: rgb(0 ,0,0,0.048);
+.homeCanvasContainer {
+  background-color: rgb(0, 0, 0, 0.048);
   width: 100%;
   z-index: 2;
   position: relative;
   height: 100vh;
   color: white;
   display: flex;
-
 }
-.homeCanvasContainer > h1{
+.homeCanvasContainer > h1 {
   filter: drop-shadow(0 0 2px rgba(28, 116, 216));
   font: 700 4vmax "Josefin Sans", sans-serif;
   position: absolute;
@@ -26,35 +25,28 @@
   position: absolute;
   top: 30%;
   left: 0;
-
-
 }
-.homeCanvasContainer > h1 > p{
+.homeCanvasContainer > h1 > p {
   transition: 0.5s;
   color: black;
-
-
 }
-.homeCanvasContainer > h1 > p:hover{
- transform: translateY(-10px);
-
-
+.homeCanvasContainer > h1 > p:hover {
+  transform: translateY(-10px);
 }
-.homeCanvasBox{
+.homeCanvasBox {
   position: absolute;
 
   right: 0%;
- text-align: right;
-  transform: translate(0% , 65%);
+  text-align: right;
+  transform: translate(0%, 65%);
 }
-.homeCanvasBox > h2{
+.homeCanvasBox > h2 {
   font: 500 4rem "Ubuntu Mono ", "Roboto";
   line-height: 100px;
   letter-spacing: 12px;
   color: white;
-
 }
-.homeCanvasContainer > a{
+.homeCanvasContainer > a {
   background-color: white;
   color: black;
   transition: all 0.5s;
@@ -68,12 +60,11 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
-.homeCanvasContainer > a:hover{
- color: rgba(255, 255, 255);
- background-color: rgba(0,0,0,0);
-
+.homeCanvasContainer > a:hover {
+  color: rgba(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0);
 }
-.homeScrollBtn{
+.homeScrollBtn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,11 +74,10 @@
   transform: translateY(-150%);
   padding: 0.5vmax;
   animation: scrollPop 0.5s ease-in infinite alternate;
-
 }
-.homeScrollBtn > svg{
+.homeScrollBtn > svg {
   font-size: 3vmax;
-  color: rgba(255, 255,255);
+  color: rgba(255, 255, 255);
 }
 .homeContainer {
   background-color: white;
@@ -111,6 +101,7 @@
   perspective: 450px;
   display: flex;
   flex-direction: column;
+
   align-items: center;
   justify-content: space-around;
   overflow-x: hidden;
@@ -178,13 +169,11 @@
   padding: 0 2vmax;
   display: flex;
   flex-direction: column;
-  right: -300px;
 
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-fill-mode: forwards;
   animation-name: homeskillsBoxAnimationOff;
-
 }
 .homeSkillsBox svg {
   font-size: 5vmax;
@@ -210,30 +199,28 @@
     right: -300px;
   }
   to {
-    right: 40px;
+    right: 10px;
   }
 }
 @keyframes homeskillsBoxAnimationOff {
   from {
-    right: 40px;
+    right: 10px;
   }
   to {
     right: -300px;
   }
 }
 
-@media screen and (max-width:666px) {
-  
-   .homeCanvasBox > h2{
+@media screen and (max-width: 666px) {
+  .homeCanvasBox > h2 {
     font-size: medium;
     line-height: 100px;
-   }
-   .homeCubeSkills{
+  }
+  .homeCubeSkills {
     width: 80px;
     height: 80px;
-   
-   }
-   .homeCubeSkillsFaces1 {
+  }
+  .homeCubeSkillsFaces1 {
     transform: translate3d(0, 0, 50px);
   }
   .homeCubeSkillsFaces2 {
@@ -242,7 +229,7 @@
   .homeCubeSkillsFaces3 {
     transform: rotateY(-90deg) translate3d(0, 0, 50px);
   }
-  
+
   .homeCubeSkillsFaces4 {
     transform: rotateY(90deg) translate3d(0, 0, 50px);
   }
@@ -252,14 +239,10 @@
   .homeCubeSkillsFaces6 {
     transform: rotateX(-90deg) translate3d(0, 0, 50px);
   }
-   
-   
 }
 
 @keyframes scrollPop {
-  from{
+  from {
     transform: translateY(-200%);
   }
-  
 }
-
