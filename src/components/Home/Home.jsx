@@ -132,6 +132,7 @@ const Home = ({ data }) => {
       </div>
       <div className="homeScrollBtn">
   <MouseOutlined/>
+
       </div>
       <div className="homeContainer">
         <Typography variant="h3">TIMELINE</Typography>

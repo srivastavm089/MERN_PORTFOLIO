@@ -8,8 +8,11 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@mui/base";
 import { logout, updateUser } from "../../redux/action/user";
+import { useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
+
 const AdminPanel = () => {
+  const navigate = useNavigate();
   const { message, error } = useSelector((state) => state.login);
   const dispatch = useDispatch();
   const [name, setName] = useState("");
@@ -70,11 +73,17 @@ const AdminPanel = () => {
       dispatch({ type: "CLEAR_MESSAGE" });
     }
   }, []);
-
+  const [isLogin, setIsLogin] = useState(false);
   const logoutHandler = (e) => {
     e.preventDefault();
-    dispatch(logout());
+    localStorage.removeItem("token");
+
+    if (!localStorage.getItem("token")) {
+      window.location.reload();
+    }
   };
+
+  useEffect(() => {}, [isLogin]);
 
   return (
     <div className="admin-panel">

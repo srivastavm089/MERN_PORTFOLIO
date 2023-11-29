@@ -1,12 +1,14 @@
 import axios from "axios";
+
 export const getUser = () => {
   return async (dispatch) => {
     try {
       dispatch({
         type: "GET_USER_REQUEST",
       });
-      const { data } = await axios.get("/api/v1/getUser");
-      console.log(data)
+
+      const { data } = await axios.get("https://portolfio-0jv8.onrender.com/api/v1/getUser");
+
       dispatch({
         type: "GET_USER_SUCCESS",
         payload: data.user,
@@ -26,17 +28,17 @@ export const login = (email, password) => {
         type: "LOGIN_REQUEST",
       });
       const { data } = await axios.post(
-        "/api/v1/login",
-        {
-          email,
-          password,
-        },
+        "https://portolfio-0jv8.onrender.com/api/v1/login",
+        JSON.stringify({ email, password }),
         {
           headers: {
             "Content-Type": "application/json",
           },
+          withCredentials: true,
         }
       );
+      localStorage.setItem("token", JSON.stringify(data.token));
+
       dispatch({
         type: "LOGIN_SUCCESS",
         payload: data.message,
@@ -55,7 +57,9 @@ export const logout = () => {
       dispatch({
         type: "LOGOUT_REQUEST",
       });
-      const { data } = await axios.get("/api/v1/logout");
+      const { data } = await axios.get("https://portolfio-0jv8.onrender.com/api/v1/logout", {
+        withCredentials: true,
+      });
 
       dispatch({
         type: "LOGOUT_SUCCESS",
@@ -69,26 +73,7 @@ export const logout = () => {
     }
   };
 };
-export const loadUser = () => {
-  return async (dispatch) => {
-    try {
-      dispatch({
-        type: "LOAD_REQUEST",
-      });
-      const { data } = await axios.get("/api/v1/me");
 
-      dispatch({
-        type: "LOAD_SUCCESS",
-        payload: data.user,
-      });
-    } catch (error) {
-      dispatch({
-        type: "LOAD_FAILURE",
-        payload: error.response.data.message,
-      });
-    }
-  };
-};
 
 export const updateUser = (name, email, password, skills, about) => {
   return async (dispatch) => {
@@ -97,7 +82,7 @@ export const updateUser = (name, email, password, skills, about) => {
         type: "UPDATE_USER_REQUEST",
       });
       const { data } = await axios.put(
-        "/api/v1/admin/update",
+        "https://portolfio-0jv8.onrender.com/api/v1/admin/update",
         {
           name,
           email,
@@ -109,6 +94,7 @@ export const updateUser = (name, email, password, skills, about) => {
         {
           headers: {
             "Content-Type": "application/json",
+            Authorization: JSON.parse(localStorage.getItem("token")),
           },
         }
       );
@@ -131,7 +117,7 @@ export const addtimeline = (title, description, date) => {
         type: "ADD_TIMELINE_REQUEST",
       });
       const { data } = await axios.post(
-        "/api/v1//admin/timeline/add",
+        "https://portolfio-0jv8.onrender.com/api/v1/admin/timeline/add",
         {
           title,
           description,
@@ -140,6 +126,7 @@ export const addtimeline = (title, description, date) => {
         {
           headers: {
             "Content-Type": "application/json",
+            Authorization: JSON.parse(localStorage.getItem("token")),
           },
         }
       );
@@ -163,7 +150,14 @@ export const deleteTimeline = (id) => {
       dispatch({
         type: "DELETE_TIMELINE_REQUEST",
       });
-      const { data } = await axios.delete(`/api/v1/admin/timline/${id}`);
+      const { data } = await axios.delete(
+        `https://portolfio-0jv8.onrender.com/api/v1/admin/timline/${id}`,
+        {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        }
+      );
       dispatch({
         type: "DELETE_TIMELINE_SUCCESS",
         payload: data.message,
@@ -177,14 +171,20 @@ export const deleteTimeline = (id) => {
   };
 };
 export const deleteProject = (id) => {
-
   return async (dispatch) => {
     try {
       dispatch({
         type: "DELETE_PROJECT_REQUEST",
       });
-      const { data } = await axios.delete(`/api/v1/admin/project/${id}`);
-      console.log(data.message)
+      const { data } = await axios.delete(
+        `https://portolfio-0jv8.onrender.com/api/v1/admin/project/${id}`,
+        {
+          headers: {
+            Authorization: JSON.parse(localStorage.getItem("token")),
+          },
+        }
+      );
+      console.log(data.message);
       dispatch({
         type: "DELETE_PROJECT_SUCCESS",
         payload: data.message,
@@ -204,7 +204,7 @@ export const addProject = (url, title, image, description, techStack) => {
         type: "ADD_PROJECT_REQUEST",
       });
       const { data } = await axios.post(
-        "/api/v1/admin/project/add",
+        "https://portolfio-0jv8.onrender.com/api/v1/admin/project/add",
         {
           url,
           title,
@@ -214,7 +214,8 @@ export const addProject = (url, title, image, description, techStack) => {
         },
         {
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type":"application/json",
+            Authorization: JSON.parse(localStorage.getItem("token")),
           },
         }
       );
@@ -235,10 +236,10 @@ export const contact = (name, email, message) => {
   return async (dispatch) => {
     try {
       dispatch({
-        type: " CONTACT_REQUEST",
+        type: "CONTACT_REQUEST",
       });
       const { data } = await axios.post(
-        "/api/v1/message",
+        "https://portolfio-0jv8.onrender.com/api/v1/message",
         {
           name,
           email,
@@ -247,6 +248,7 @@ export const contact = (name, email, message) => {
         {
           headers: {
             "Content-Type": "application/json",
+            Authorization: JSON.parse(localStorage.getItem("token")),
           },
         }
       );

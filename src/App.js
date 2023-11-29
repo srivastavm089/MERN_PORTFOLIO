@@ -16,27 +16,36 @@ import Timeline from "./components/admin/Timeline";
 import Projects from "./components/admin/AdminProject";
 import AdminProject from "./components/admin/AdminProject";
 const App = () => {
-  const {isAuthenticated} = useSelector((state)=> state.login)
-  const {loading} = useSelector((state)=> state.user)
-  const data = useSelector((state)=> state.user);
- console.log(data)
+  const { isAuthenticated } = useSelector((state) => state.login);
+  console.log(isAuthenticated);
+  const { loading } = useSelector((state) => state.user);
+  const data = useSelector((state) => state.user);
+  console.log(data);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUser());
-    dispatch(loadUser());
-
   }, [dispatch]);
+  const checkLogin = localStorage.getItem("token");
   return (
     <>
       <Header />{" "}
       <Routes>
         <Route path="/" element={<Home data={data} />} />
-        <Route path="/about" element={<About about={data.user }/>} />
-        <Route path="/project" element={<Project />} />
+        <Route path="/about" element={<About about={data.user} />} />
+        <Route path="/project" element={<Project projects={data.user} />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/account" element={isAuthenticated ?   <AdminPanel/>:<Login />} />
-        <Route path="/admin/timeline" element={isAuthenticated ?   <Timeline/>:<Login />} />
-        <Route path="/admin/project" element={isAuthenticated ?   <AdminProject/>:<Login />} />
+        <Route
+          path="/account"
+          element={checkLogin ? <AdminPanel /> : <Login />}
+        />
+        <Route
+          path="/admin/timeline"
+          element={checkLogin ? <Timeline /> : <Login />}
+        />
+        <Route
+          path="/admin/project"
+          element={checkLogin ? <AdminProject /> : <Login />}
+        />
       </Routes>
       <Footer />
     </>

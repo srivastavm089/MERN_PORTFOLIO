@@ -34,9 +34,7 @@ useEffect(()=>{
       dispatch(getUser())
     }
 },[message])
-// useEffect(()=>{
 
-// },[])
   return (
     <div className="admin-panel">
          <Toaster />
@@ -87,7 +85,7 @@ useEffect(()=>{
         </form>
         <div className="adminPanelTimeline">
           {
-            user.timeline && user.timeline.map((item, index) =>(
+            user && user.timeline.map((item, index) =>(
               <div className="time-line-div">
               <Typography variant="h6">{item.title}</Typography>
               <Typography variant="body1" style={{ letterSpacing: "2px" }}>

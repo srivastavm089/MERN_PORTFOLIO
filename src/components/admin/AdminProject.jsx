@@ -1,13 +1,15 @@
 import { Button, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdKeyboardBackspace, MdTimeline } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { addProject, deleteProject } from "../../redux/action/user";
+import { addProject, deleteProject, getUser } from "../../redux/action/user";
 import { FaTrash } from "react-icons/fa";
+import toast, { Toaster } from "react-hot-toast";
 
 const AdminProject = () => {
   const { user } = useSelector((state) => state.user);
+  const { message, error, loading } = useSelector((state) => state.update);
   const dispatch = useDispatch();
   const [url, setUrl] = useState("");
   const [title, setTitle] = useState("");
@@ -32,9 +34,15 @@ const AdminProject = () => {
       }
     };
   };
+  useEffect(()=>{
+    if(message){
+      toast.success(message)
+      dispatch(getUser())
+    }
+},[message])
   return (
     <div className="admin-panel">
-      {/* <Toaster /> */}
+      <Toaster />
       <div className="admin-panel-container">
         <Typography variant="h4">
           <p>A</p>
@@ -93,7 +101,7 @@ const AdminProject = () => {
           </Link>
         </form>
         <div className="adminPanelTimeline">
-          {user.projects &&
+          {user &&
             user.projects.map((item, index) => (
               <div className="admin-project-div">
                 <img

@@ -3,11 +3,22 @@ import "../About/about.css";
 import { Typography } from "@mui/material";
 import { image } from "../../images";
 import Typewriter from "typewriter-effect";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getUser } from "../../redux/action/user";
+const About = () => {
+  const dispatch = useDispatch()
+  const about = useSelector((state)=> state.user.user);
 
-const About = ({ about }) => {
+  useEffect(()=>{
+    dispatch(getUser());
+
+  }, [dispatch])
+
   return (
     <>
-      <div className="about">
+      {
+        about && <div className="about">
         <div className="aboutContainer">
           <Typography>{about.about.quote}</Typography>
         </div>
@@ -19,7 +30,7 @@ const About = ({ about }) => {
                 alt="image"
                 className="about-avatar"
               />
-              <div class="border"></div>
+              <div className="border"></div>
             </div>
 
             <Typography
@@ -62,6 +73,7 @@ const About = ({ about }) => {
           </div>
         </div>
       </div>
+      }
     </>
   );
 };

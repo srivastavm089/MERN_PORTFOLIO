@@ -9,7 +9,7 @@ import TimelineDot from "@mui/lab/TimelineDot";
 import { Event } from "@mui/icons-material";
 import { Typography } from "@mui/material";
 const TimeLine = ({timeline}) => {
-
+ console.log(timeline)
   return (
     <div>
       <Timeline position="alternate">

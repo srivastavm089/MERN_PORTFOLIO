@@ -223,12 +223,14 @@
 }
 
 @media screen and (max-width:666px) {
-   .homeSkillsBox{
-      display: none;
-   }
+  
    .homeCanvasBox > h2{
     font-size: medium;
     line-height: 100px;
+   }
+   .homeCubeSkills{
+    width: 70px;
+    height: 70px;
    }
    
    
