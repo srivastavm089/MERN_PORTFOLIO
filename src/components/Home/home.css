@@ -45,7 +45,7 @@
 
   right: 0%;
  text-align: right;
-  transform: translate(0% , 50%);
+  transform: translate(0% , 65%);
 }
 .homeCanvasBox > h2{
   font: 500 4rem "Ubuntu Mono ", "Roboto";
@@ -229,9 +229,29 @@
     line-height: 100px;
    }
    .homeCubeSkills{
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
+   
    }
+   .homeCubeSkillsFaces1 {
+    transform: translate3d(0, 0, 50px);
+  }
+  .homeCubeSkillsFaces2 {
+    transform: rotateY(180deg) translate3d(0, 0, 50px);
+  }
+  .homeCubeSkillsFaces3 {
+    transform: rotateY(-90deg) translate3d(0, 0, 50px);
+  }
+  
+  .homeCubeSkillsFaces4 {
+    transform: rotateY(90deg) translate3d(0, 0, 50px);
+  }
+  .homeCubeSkillsFaces5 {
+    transform: rotateX(90deg) translate3d(0, 0, 50px);
+  }
+  .homeCubeSkillsFaces6 {
+    transform: rotateX(-90deg) translate3d(0, 0, 50px);
+  }
    
    
 }
