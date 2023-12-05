@@ -31,7 +31,7 @@
 
   box-shadow: 0 0 15px black;
   position: absolute;
-  bottom: 0;
+bottom: 0;
   box-sizing: border-box;
   padding: 2vmax;
   display: flex;
@@ -113,7 +113,12 @@
   }
   .aboutContainer2 {
     width: 100%;
+    bottom: 5vh;
+    height: 100vh;
     position: relative;
+    letter-spacing: 2px;
+    word-spacing: 0;
+    bottom: 0;
     flex-direction: column;
     animation: aboutAnimationPhone 1s ease-in forwards;
     max-height: 90vh !important;

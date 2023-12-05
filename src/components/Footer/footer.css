@@ -1,66 +1,63 @@
-.footer{
-    background-color: rgb(26,26,26);
-    padding: 3vmax;
-    display: grid;
-    grid-template-columns: 1fr 200px;
-   
-
+.footer {
+  background-color: rgb(26, 26, 26);
+  padding: 3vmax;
+  display: grid;
+ min-height: 25vh;
+  grid-template-columns: 1fr 200px;
+  
 }
-.footer > div > h5{
-    color: white;
-    border-bottom: 1px solid white;
-    width: 120px;
-    margin-bottom: 20px;
-    padding: 10px 0;
-
-}
-.footer > div > p{
-    color: white;
-    width: 60%;
-}
-.footer > div > h6{
-    color: white;
+.footer > div > h5 {
+  color: white;
+  border-bottom: 1px solid white;
+  width: 120px;
+  margin-bottom: 20px;
   padding: 10px 0;
 }
-.footer > div:last-child{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.footer > div > p {
+  color: white;
+  width: 60%;
 }
-.footer > div > a{
-    font-size: 3vmax;
-    color: white;
-    transition: all 0.3s;
+.footer > div > h6 {
+  color: white;
+  padding: 10px 0;
 }
-.footer > div > a:nth-child(2):hover{
-    color: rgb(64, 88, 226);
+.footer > div:last-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.footer > div > a:nth-child(3):hover{
-    color: rgb(241, 59, 59);
+.footer > div > a {
+  font-size: 3vmax;
+  color: white;
+  transition: all 0.3s;
 }
-.footer > div > a:nth-child(4):hover{
-    color: rgb(119, 61, 212);
+.footer > div > a:nth-child(2):hover {
+  color: rgb(64, 88, 226);
 }
-.footerContactBtn{
-    background-color: white;
-    color: black;
-    padding: 5px;
-    width: 120px;
-    transition: all 0.5s;
-    text-decoration: none;
-    display: block;
-    text-align: center;
-    border: 1px solid white;
-    margin: 2vmax 0;
-
+.footer > div > a:nth-child(3):hover {
+  color: rgb(241, 59, 59);
 }
-.footerContactBtn > p{
-    color: black;
+.footer > div > a:nth-child(4):hover {
+  color: rgb(119, 61, 212);
 }
-.footerContactBtn:hover{
-    background-color: unset;
-   
+.footerContactBtn {
+  background-color: white;
+  color: black;
+  padding: 5px;
+  width: 120px;
+  transition: all 0.5s;
+  text-decoration: none;
+  display: block;
+  text-align: center;
+  border: 1px solid white;
+  margin: 2vmax 0;
 }
-.footerContactBtn > p:hover{
- color: white;
+.footerContactBtn > p {
+  color: black;
+}
+.footerContactBtn:hover {
+  background-color: unset;
+}
+.footerContactBtn > p:hover {
+  color: white;
 }

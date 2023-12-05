@@ -114,11 +114,11 @@ const Home = ({ data }) => {
       <canvas className="home-canvas"></canvas>
       <div className="homeCanvasContainer">
         <Typography variant="h1">
-          <p>A</p>
-          <p>B</p>
-          <p>H</p>
-          <p>A</p>
-          <p>Y</p>
+          <p className="name-animation">A</p>
+          <p className="name-animation">B</p>
+          <p className="name-animation">H</p>
+          <p className="name-animation">A</p>
+          <p className="name-animation">Y</p>
          
         </Typography>
         <div className="homeCanvasBox">

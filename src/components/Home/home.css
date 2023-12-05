@@ -2,9 +2,10 @@
   width: 100vw;
   height: 100vh;
   max-width: 100%;
-  filter: blur(10px);
+  filter: blur(1px);
   position: absolute;
 }
+
 .homeCanvasContainer {
   background-color: rgb(0, 0, 0, 0.048);
   width: 100%;
@@ -23,8 +24,9 @@
   text-align: center;
   background-color: white;
   position: absolute;
-  top: 30%;
-  left: 0;
+
+  top: 20%;
+ left: 0;
 }
 .homeCanvasContainer > h1 > p {
   transition: 0.5s;
@@ -92,6 +94,8 @@
   color: rgba(22, 20, 20, 0.904);
   padding: 4vmax;
 }
+
+
 .homeSkills {
   transform: translateY(-200px);
   height: 1500px;
@@ -101,7 +105,7 @@
   perspective: 450px;
   display: flex;
   flex-direction: column;
-
+ 
   align-items: center;
   justify-content: space-around;
   overflow-x: hidden;
@@ -164,6 +168,7 @@
   filter: blue(3px);
 }
 .homeSkillsBox {
+
   background-color: hsl(250, 100%, 75%);
   position: absolute;
   padding: 0 2vmax;
@@ -183,6 +188,19 @@
 }
 .homeSkillsBox > svg:hover {
   transform: scale(1.5);
+}
+.name-animation{
+  animation: nameAnimation 1s ease-in-out forwards;
+  transition: all 1s;
+  transform: translateX(-20vw);
+
+}
+@keyframes nameAnimation {
+  
+   to{
+    transform: translateX(0);
+   }
+  
 }
 @keyframes cubeRotation {
   to {
@@ -212,13 +230,33 @@
 }
 
 @media screen and (max-width: 666px) {
+
   .homeCanvasBox > h2 {
     font-size: medium;
     line-height: 100px;
   }
+  .homeSkills{
+    height: 1200px;
+  }
+  .cubeShadow{
+    position: relative;
+  width: 150px;
+  bottom: 10vh;
+
+  }
+  .homeSkills{
+    /* transform: translateY(-300px); */
+  }
+  .homeCanvasContainer > h1{
+    top: 10%;
+  }
   .homeCubeSkills {
     width: 80px;
     height: 80px;
+  }
+  .homeCanvasContainer > a{
+      top: 44%;
+      font-size: 10px;
   }
   .homeCubeSkillsFaces1 {
     transform: translate3d(0, 0, 50px);
@@ -238,6 +276,10 @@
   }
   .homeCubeSkillsFaces6 {
     transform: rotateX(-90deg) translate3d(0, 0, 50px);
+  }
+  .timeline-h6 h6{
+    font-weight: 400;
+    font-size: medium;
   }
 }
 

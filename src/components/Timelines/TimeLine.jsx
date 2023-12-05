@@ -12,7 +12,7 @@ const TimeLine = ({timeline}) => {
  console.log(timeline)
   return (
     <div>
-      <Timeline position="alternate">
+      <Timeline className="timeline-h6" position="alternate">
         {timeline.map((item, index) => {
           return (
             <TimelineItem key={index}>
