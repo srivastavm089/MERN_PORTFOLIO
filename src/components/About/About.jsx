@@ -40,7 +40,7 @@ const About = () => {
                 color: "black",
               }}
             >
-              <p>Hi, i'm {about.about.name}</p>
+              <p>Hi, I'm {about.about.name}</p>
             </Typography>
             <Typography>
               {about.about.title} !

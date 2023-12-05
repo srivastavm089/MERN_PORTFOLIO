@@ -5,6 +5,7 @@
 
 
 }
+
 .contactRigthBar{
 background-image: linear-gradient(to bottom, purple, white);
 width: 30%;
@@ -90,4 +91,10 @@ right: 0;
     }to{
         transform: translateX(0);
     }
+}
+@media screen and (max-width:666px) {
+    .contact h4{
+       font-size: 10px;
+       
+        }
 }

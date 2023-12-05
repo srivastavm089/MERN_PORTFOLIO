@@ -122,7 +122,7 @@ const Home = ({ data }) => {
          
         </Typography>
         <div className="homeCanvasBox">
-            <Typography variant="h2">Designer</Typography>
+            <Typography variant="h2">DESIGNER</Typography>
             <Typography variant="h2">DEVELOPER</Typography>
             <Typography variant="h2">STUDENT</Typography>
             <Typography variant="h2">CONTENT CREATER</Typography>

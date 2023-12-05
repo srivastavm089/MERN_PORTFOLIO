@@ -75,21 +75,17 @@
   background-color: #7c73f8;
   padding: 1vmax;
   color: white;
-
 }
-.fileUploadButton::-webkit-file-upload-button{
+.fileUploadButton::-webkit-file-upload-button {
   background-color: #7c73f8;
- color: white;
- border: none;
- border-radius: 15px;
- transition: all 0.5s;
-
+  color: white;
+  border: none;
+  border-radius: 15px;
+  transition: all 0.5s;
 }
-.fileUploadButton::-webkit-file-upload-button:hover{
+.fileUploadButton::-webkit-file-upload-button:hover {
   cursor: pointer;
   background-color: indigo;
-  
-
 }
 .adminPanelAbout > fieldset {
   display: flex;
@@ -168,7 +164,7 @@
 
   transition: all 0.5s;
 }
-.admin-project-div > img{
+.admin-project-div > img {
   width: 225px;
   height: 225px;
 }
@@ -177,5 +173,9 @@
   transform: translateY(-5px);
 }
 
-
-
+@media screen and (max-width: 600px) {
+  .admin-panel-container > h4 {
+    margin: 0.5vmax;
+    letter-spacing: 10px;
+  }
+}
