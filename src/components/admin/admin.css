@@ -5,6 +5,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+ 
+
 }
 .admin-panel-container {
   width: 100%;
@@ -19,6 +21,7 @@
   transform: translateX(-100vw);
   animation: contactFormInput 1s ease-in-out forwards;
   justify-content: center;
+
 }
 .admin-panel-container > h4 > p {
   transition: all 0.5s;
@@ -173,9 +176,10 @@
   transform: translateY(-5px);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and  (max-width: 600px) {
   .admin-panel-container > h4 {
     margin: 0.5vmax;
     letter-spacing: 10px;
+    
   }
 }

@@ -5,6 +5,7 @@
   justify-content: center;
   width: 100%;
   align-items: center;
+ 
 }
 .loginContainer {
   width: 50%;
@@ -94,5 +95,14 @@
   .loginForm > div > button {
     padding: 2vw 6vw;
     margin: 2vw;
+  }
+  .loginForm > h4 {
+    margin: 2vmax;
+    letter-spacing: 10px;
+ 
+    /* display: flex;
+    transform: translateX(-100vw);
+    animation: contactFormInput 1s ease-in-out forwards;
+    justify-content: center; */
   }
 }

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./admin.css";
+import "./admin.css"
 import { Alert, AlertTitle, Typography } from "@mui/material";
 import { MdTimeline } from "react-icons/md";
 import { AiOutlineProject } from "react-icons/ai";
