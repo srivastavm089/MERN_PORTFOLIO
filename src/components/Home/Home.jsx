@@ -7,7 +7,8 @@ import { venusImage } from "../../images";
 import { spaceImage } from "../../images";
 import { Typography } from "@mui/material";
 import Timeline from "../Timelines/TimeLine";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import { Audio } from "react-loader-spinner";
 import {
   SiCplusplus,
   SiReact,
@@ -20,6 +21,7 @@ import {
   SiGithub,
 } from "react-icons/si";
 import { MouseOutlined } from "@mui/icons-material";
+import { useDispatch, useSelector } from "react-redux";
 const Home = ({ data }) => {
   useEffect(() => {
     const textureLoader = new THREE.TextureLoader();
@@ -91,7 +93,6 @@ const Home = ({ data }) => {
     animate();
 
     const handleScroll = () => {
-  
       camera.rotation.z = window.scrollY * 0.001;
       camera.rotation.y = window.scrollY * 0.003;
       const skillsBox = document.getElementById("homeSkillBox");
@@ -107,10 +108,11 @@ const Home = ({ data }) => {
     };
     return window.addEventListener("scroll", handleScroll);
   }, []);
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.user);
 
   return (
     <div className="home">
-   
       <canvas className="home-canvas"></canvas>
       <div className="homeCanvasContainer">
         <Typography variant="h1">
@@ -119,26 +121,24 @@ const Home = ({ data }) => {
           <p className="name-animation">H</p>
           <p className="name-animation">A</p>
           <p className="name-animation">Y</p>
-         
         </Typography>
         <div className="homeCanvasBox">
-            <Typography variant="h2">DESIGNER</Typography>
-            <Typography variant="h2">DEVELOPER</Typography>
-            <Typography variant="h2">STUDENT</Typography>
-            <Typography variant="h2">CONTENT CREATER</Typography>
-          </div>
-          
-          <Link to="/project">VIEW WORK</Link>
+          <Typography variant="h2">DESIGNER</Typography>
+          <Typography variant="h2">DEVELOPER</Typography>
+          <Typography variant="h2">STUDENT</Typography>
+          <Typography variant="h2">CONTENT CREATER</Typography>
+        </div>
+
+        <Link to="/project">VIEW WORK</Link>
       </div>
       <div className="homeScrollBtn">
-  <MouseOutlined/>
-
+        <MouseOutlined />
       </div>
       <div className="homeContainer">
         <Typography variant="h3">TIMELINE</Typography>
         {data.user && <Timeline timeline={data.user.timeline} />}
       </div>
-      {data.user && (
+      {data.user ? (
         <div className="homeSkills">
           <Typography variant="h3">SKILLS</Typography>
           <div className="homeCubeSkills">
@@ -174,6 +174,16 @@ const Home = ({ data }) => {
             <SiGithub />
           </div>
         </div>
+      ) : (
+        <Audio
+          height="250"
+          width="2000"
+          radius="9"
+          color="purple"
+          ariaLabel="loading"
+          wrapperStyle
+          wrapperClass
+        />
       )}
     </div>
   );

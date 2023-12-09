@@ -1,6 +1,6 @@
 import { createReducer } from "@reduxjs/toolkit";
 const initial = {
-  loading: true,
+  loading: false,
 };
 export const userReducer = createReducer(initial, {
   GET_USER_REQUEST: (state) => {

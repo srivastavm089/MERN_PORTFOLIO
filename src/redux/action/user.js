@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const getUser = () => {
+  
   return async (dispatch) => {
     try {
       dispatch({
