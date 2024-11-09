@@ -123,10 +123,10 @@ const Home = ({ data }) => {
           <p className="name-animation">Y</p>
         </Typography>
         <div className="homeCanvasBox">
-          <Typography variant="h2">DESIGNER</Typography>
+          <Typography variant="h2">WEB DESIGNER</Typography>
           <Typography variant="h2">DEVELOPER</Typography>
-          <Typography variant="h2">STUDENT</Typography>
-          <Typography variant="h2">CONTENT CREATER</Typography>
+          <Typography variant="h2">FREELANCER</Typography>
+          <Typography variant="h2">CONTENT CREATOR</Typography>
         </div>
 
         <Link to="/project">VIEW WORK</Link>
